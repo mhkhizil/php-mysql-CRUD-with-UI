@@ -13,9 +13,7 @@
                 $sql=
                 "INSERT INTO testing(sname,money) VALUES('$name',$money)";
                 if(mysqli_query($con,$sql)){
-                  echo "<div class=' alert alert-dark  text-dark'>
-                  Data Inserted!
-                  </div>";
+                  echo alert("Data Inserted!");
                 }
               }
               ?>
