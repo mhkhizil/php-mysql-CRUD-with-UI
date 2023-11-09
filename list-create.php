@@ -10,9 +10,16 @@
               if ($_SERVER["REQUEST_METHOD"]==="POST") {
                 $name=$_POST["name"];
                 $money=$_POST["money"];
+                $sql=
+                "INSERT INTO testing(sname,money) VALUES('$name',$money)";
+                if(mysqli_query($con,$sql)){
+                  echo "<div class=' alert alert-dark  text-dark'>
+                  Data Inserted!
+                  </div>";
+                }
               }
               ?>
-              <form>
+              <form action="" method="post">
                 <div class=" mb-3">
                   <label for="" class=" form-label">Name</label>
                   <input class=" form-control" type="text" name="name" required>
