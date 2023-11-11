@@ -5,6 +5,12 @@
   <div class=" row">
         <div class=" col-12">
             <div class=" border rounded-4 p-5 m-5">
+              <?php 
+              if (!empty($_SESSION["status"])) {
+             echo alert($_SESSION["status"]["message"]);
+             $_SESSION["status"]=null;
+              }
+              ?>
               <h1> Lists</h1>
               <?php 
               $sql="SELECT * FROM testing";
