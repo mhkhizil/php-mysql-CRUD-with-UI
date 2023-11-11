@@ -8,6 +8,10 @@
               <h1> Lists</h1>
               <?php 
               $sql="SELECT * FROM testing";
+              if (isset($_GET['q'])) {
+                $q=$_GET['q'];
+                $sql.=" WHERE sname LIKE '%$q%'";
+              }
               $query=mysqli_query($con,$sql);
               // dd(mysqli_fetch_assoc($query));
               $sumSql="SELECT SUM(money) AS Total_Dept FROM testing";
@@ -15,8 +19,18 @@
        
           
               ?>
-              <div class=" my-2">
-                Total:<?= $query->num_rows?>
+              <div class=" my-2 row justify-content-between align-items-center">
+               <div class="col-4">
+               Total Lists:<?= $query->num_rows?>
+               </div>
+               <div class="col-8">
+                <form action="" method="get">
+                  <div class="input-group">
+                <input type="text" name="q" id="" class="   form-control  rounded-4 mx-2">
+                <button class=" btn btn-dark  rounded-4">Search</button>
+                  </div>
+                </form>
+               </div>
               </div>
               <table class=" table  table-hover">
                 <thead>
