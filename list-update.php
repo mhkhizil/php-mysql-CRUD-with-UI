@@ -13,7 +13,8 @@
             $data=mysqli_fetch_assoc($query);
             // dd($data);
             ?>
-              <form action="" method="post">
+              <form action="./list-update-info.php" method="post">
+                <input type="hidden" value="<?=$id?>" name="id">
                 <div class=" mb-3">
                   <label for="" class=" form-label">Name</label>
                   <input value='<?=$data['sname']?>' class=" form-control" type="text" name="name" required>

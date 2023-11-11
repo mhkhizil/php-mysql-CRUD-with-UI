@@ -9,6 +9,7 @@
               <?php 
               $sql="SELECT * FROM testing";
               $query=mysqli_query($con,$sql);
+              // dd(mysqli_fetch_assoc($query));
               $sumSql="SELECT SUM(money) AS Total_Dept FROM testing";
               $sumSql=mysqli_query($con,$sumSql);
        
@@ -32,7 +33,7 @@
                   <?php while($rows=mysqli_fetch_assoc($query)) :?>
                       <tr class=" align-middle">
                         <td><?=$rows["id"]?></td>
-                        <td><?=$rows["name"]?></td>
+                        <td><?=$rows["sname"]?></td>
                         <td class=" text-end"><?=$rows["money"]?></td>
                       
                         <td>
