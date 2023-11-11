@@ -26,7 +26,7 @@
                <div class="col-8">
                 <form action="" method="get">
                   <div class="input-group">
-                <input type="text" name="q" id="" class="   form-control  rounded-4 mx-2">
+                <input type="text" name="q" value="<?php  if(isset($_GET['q'])): ?><?= $_GET['q']?>  <?php endif;?>" class="   form-control  rounded-4 mx-2">
                 <button class=" btn btn-dark  rounded-4">Search</button>
                   </div>
                 </form>
