@@ -22,8 +22,10 @@
                   <tr>
                     <th>No.</th>
                     <th>Name</th>
-                    <th>Money</th>
+                    <th class=" text-end">Money</th>
                     <th>Created at</th>
+                    <th>Action</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -31,7 +33,8 @@
                       <tr class=" align-middle">
                         <td><?=$rows["id"]?></td>
                         <td><?=$rows["name"]?></td>
-                        <td><?=$rows["money"]?></td>
+                        <td class=" text-end"><?=$rows["money"]?></td>
+                      
                         <td>
                           <p class=" mb-0 small">
                           <i class=" bi bi-calendar"> </i>  
@@ -40,6 +43,14 @@
                           <i class=" bi bi-clock"> </i>  
                           <?=ShowDatTimeFormatted($rows["created_at"],'h:i:s')?></p>
                         </td>
+                        <td>
+                          <a href="./list-update.php?id=<?=$rows["id"]?>" class=" btn btn-dark">Update</a>
+                          <form action="./list-delete.php" method="post" class="   d-inline">
+                            <input type="hidden" value="<?=$rows["id"]?>" name="id">
+                          <button onclick="return confirm('Do you really want to delete this list?')" href="./list-delete.php" class=" btn btn-danger">Delete</button>
+                          </form>
+                        
+                        </td>
                       </tr>
 
                     <?php endwhile;?>
@@ -47,7 +58,8 @@
                 <tfoot>
                   <tr>
                     <td colspan="2">Total</td>
-                    <td colspan="2"><?=mysqli_fetch_assoc($sumSql)['Total_Dept']?></td>
+                    <td colspan="" class=" text-end"><?=mysqli_fetch_assoc($sumSql)['Total_Dept']?></td>
+                    <td colspan="2"></td>
                   </tr>
                 </tfoot>
               </table>
